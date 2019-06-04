@@ -12,9 +12,14 @@ func TestSwap(t *testing.T) {
 		a, b int
 	}{
 		{
-			name: "different_positive_numbers_correctly_swapped",
+			name: "different_positive_numbers_correctly_swapped_lower_first",
 			a:    1,
 			b:    2,
+		},
+		{
+			name: "different_positive_numbers_correctly_swapped_higher_first",
+			a:    2,
+			b:    1,
 		},
 		{
 			name: "same_number_does_not_change",
