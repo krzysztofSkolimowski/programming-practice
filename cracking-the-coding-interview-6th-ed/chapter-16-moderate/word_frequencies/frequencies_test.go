@@ -15,20 +15,40 @@ func TestNewCounterFromFile(t *testing.T) {
 		expectedErr        error
 	}{
 		{
-			name:        "file-is-opened",
+			name:        "file_is_opened",
 			fileName:    "lorem",
 			expectedErr: nil,
 		},
 		{
-			name:        "file-is-not-opened",
+			name:        "file_is_not_opened",
 			fileName:    "loremeee",
 			expectedErr: word_frequencies.ErrCannotOpenFile,
 		},
 		{
-			name:     "file-is-not-opened",
+			name:     "count_works_correctly",
 			fileName: "test-book-1",
 			expectedWordsCount: map[string]int{
 				"abc": 4,
+			},
+			expectedErr: nil,
+		},
+		{
+			name:     "count_works_correctly_many_Words",
+			fileName: "test-book-2",
+			expectedWordsCount: map[string]int{
+				"abc": 4,
+				"aa":  3,
+				"asd": 2,
+			},
+			expectedErr: nil,
+		},
+		{
+			name:     "count_works_correctly_multiple_lines",
+			fileName: "test-book-3",
+			expectedWordsCount: map[string]int{
+				"abc": 12,
+				"aa":  9,
+				"asd": 6,
 			},
 			expectedErr: nil,
 		},
@@ -47,30 +67,3 @@ func TestNewCounterFromFile(t *testing.T) {
 		})
 	}
 }
-
-//func Test_counter_Count(t *testing.T) {
-//	type fields struct {
-//		words map[string]int
-//	}
-//	type args struct {
-//		word string
-//	}
-//	tests := []struct {
-//		name   string
-//		fields fields
-//		args   args
-//		want   int
-//	}{
-//		// TODO: Add test cases.
-//	}
-//	for _, tt := range tests {
-//		t.Run(tt.name, func(t *testing.T) {
-//			c := counter{
-//				words: tt.fields.words,
-//			}
-//			if got := c.Count(tt.args.word); got != tt.want {
-//				t.Errorf("counter.Count() = %v, want %v", got, tt.want)
-//			}
-//		})
-//	}
-//}

@@ -42,6 +42,7 @@ func readWordsFromFile(fileName string) (map[string]int, error) {
 		return nil, ErrCannotOpenFile
 	}
 	defer f.Close()
+
 	reg, err := regexp.Compile("[^a-zA-Z]+")
 	if err != nil {
 		return nil, err
