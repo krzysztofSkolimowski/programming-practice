@@ -50,5 +50,8 @@ func Intersect(a, b line) bool {
 
 	x := (b.interceptY - a.interceptY) / (a.slope - b.slope)
 	intersection := Point{x, a.slope*x + a.interceptY}
-	return intersection.X > a.start.X && intersection.X < a.end.X
+
+	withinA := intersection.X > a.start.X && intersection.X < a.end.X
+	withinB := intersection.X > b.start.X && intersection.X < b.end.X
+	return withinA && withinB
 }
