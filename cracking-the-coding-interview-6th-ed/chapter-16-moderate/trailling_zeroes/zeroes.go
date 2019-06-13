@@ -21,9 +21,11 @@ func CountTrailingZeroesFact(n int) int {
 
 func distribution(number int, factor int) int {
 	count := 0
+
 	for number%factor == 0 {
 		count++
 		number /= factor
 	}
+
 	return count
 }
