@@ -44,10 +44,9 @@ func convert(n int) (string, error) {
 
 	ret := ""
 	for i := range larges {
-
 		num := n % base
-		numString, err := convertSmall(num)
 
+		numString, err := convertSmall(num)
 		if err != nil {
 			return "", err
 		}
