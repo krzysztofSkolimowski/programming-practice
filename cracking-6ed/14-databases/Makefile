@@ -4,8 +4,6 @@ ensure_outside_container:
 up: ensure_outside_container
 	@docker-compose pull && docker-compose up
 
-#| grep --line-buffered server_1
-
 rm: ensure_outside_container
 	docker-compose down -v
 
@@ -15,4 +13,8 @@ enter: ensure_outside_container
 mycli: SHELL:=/bin/bash
 mycli: ensure_outside_container
 	mycli -h 127.0.0.1 -P 3306 -u root -p topsecret
-#	@source <(cat .env $(ENVS)) && mycli -h 127.0.0.1 -P $$IMAGINATION_MYSQL_PORT -u $$IMAGINATION_MYSQL_USER -p$$IMAGINATION_MYSQL_PASSWORD
+
+migrate: ensure_outside_container
+	sql-migrate up  -env multiple-apartments
+	sql-migrate up  -env open-requests
+	sql-migrate up  -env close-all-requests

@@ -1,6 +1,5 @@
 multiple-apartments:
   dialect: mysql
-  #    datasource: root:topsecret@tcp(127.0.0.1:3306)/multiple_apartments?parseTime=true
   datasource: root:topsecret@tcp/multiple_apartments?parseTime=true
   dir: multiple_apartments/migrations
 
