@@ -1,0 +1,15 @@
+multiple-apartments:
+  dialect: mysql
+  #    datasource: root:topsecret@tcp(127.0.0.1:3306)/multiple_apartments?parseTime=true
+  datasource: root:topsecret@tcp/multiple_apartments?parseTime=true
+  dir: multiple_apartments/migrations
+
+open-requests:
+  dialect: mysql
+  datasource: root:topsecret@tcp(127.0.0.1:3306)/open_requests?parseTime=true
+  dir: open_requests/migrations
+
+close-all-requests:
+  dialect: mysql
+  datasource: root:topsecret@tcp(127.0.0.1:3306)/close_all_requests?parseTime=true
+  dir: close_all_requests/migrations
