@@ -77,9 +77,9 @@ func Test_getAllLenghts(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			actual := getAllLenghts(tc.numberOfBoards, shorterBoardLenght, longerBoardLenght)
+			actual := getAllLengths(tc.numberOfBoards, shorterBoardLenght, longerBoardLenght)
 			if !reflect.DeepEqual(actual, tc.expected) {
-				t.Errorf("getAllLenghts() = %v, actual %v", actual, tc.expected)
+				t.Errorf("getAllLengths() = %v, actual %v", actual, tc.expected)
 			}
 		})
 	}
@@ -136,9 +136,9 @@ func Test_getAllLenghtsSums(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			actual := getAllLenghtsSums(tc.numberOfBoards, shorterBoardLenght, longerBoardLenght)
+			actual := allLengthsSums(tc.numberOfBoards, shorterBoardLenght, longerBoardLenght)
 			if !reflect.DeepEqual(actual, tc.expected) {
-				t.Errorf("getAllLenghts() = %v, actual %v", actual, tc.expected)
+				t.Errorf("getAllLengths() = %v, actual %v", actual, tc.expected)
 			}
 		})
 	}

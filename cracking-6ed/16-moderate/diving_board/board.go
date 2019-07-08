@@ -1,7 +1,7 @@
 package diving_board
 
 //recursive brute force
-func getAllLenghts(numberOfBoards, shorter, longer int) map[int]struct{} {
+func getAllLengths(numberOfBoards, shorter, longer int) map[int]struct{} {
 	lengthsSet := make(map[int]struct{})
 
 	total := 0
@@ -29,15 +29,15 @@ func addBoards(total, numberOfBoards, shorter, longer int, lengthSet map[int]str
 }
 
 //sum approach
-func getAllLenghtsSums(numberOfBoards, shorter, longer int) map[int]struct{} {
-	lenghtsSet := make(map[int]struct{})
+func allLengthsSums(numberOfBoards, shorter, longer int) map[int]struct{} {
+	lengthsSet := make(map[int]struct{})
 	for i := 0; i <= numberOfBoards; i++ {
 		sum := i*shorter + (numberOfBoards-i)*longer
-		_, ok := lenghtsSet[sum]
+		_, ok := lengthsSet[sum]
 		if !ok {
-			lenghtsSet[sum] = struct{}{}
+			lengthsSet[sum] = struct{}{}
 		}
 	}
 
-	return lenghtsSet
+	return lengthsSet
 }
