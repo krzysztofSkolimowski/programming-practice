@@ -1,0 +1,17 @@
+Auvik technical assessment
+
+Imagine that we are writing a tool that analyses log files to allow investigators perform forensic
+analysis on attacked servers. We plan to use this tool to perform different types of analysis but
+for now the only information that we want to get is the top 10 countries that try to brute force the
+SSH server.
+
+You can use the file in http://www.secrepo.com/auth.log/auth.log.gz as input. To determine the
+country from the attacking IP you can use any freely available Geolocation address database.
+The application should allow the user to specify a time range so only log messages within the
+time range are considered.
+
+Writing your solution using the Go programming language is preferred but you can use any
+language you feel comfortable with. Code should be performant, extensible, maintainable and
+robust.
+
+Please send the code as a bundled local git repository (git bundle)
