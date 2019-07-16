@@ -184,7 +184,7 @@ func TestIPAddAndFilter(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			r := regexp.MustCompile(ip.IPPattern)
+			r := regexp.MustCompile(ip.Pattern)
 			var ipSlice []net.IP = nil
 			filters := append(tc.filters, ContainsIPAddAndFilterBuilder(r, &ipSlice))
 			actual := checkFilters(tc.log, filters...)

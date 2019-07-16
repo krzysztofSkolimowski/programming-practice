@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/krzysztofSkolimowski/programming-practice/random-exercises/forensic/ip"
 	"github.com/krzysztofSkolimowski/programming-practice/random-exercises/forensic/log"
+	"sort"
 )
 
 //func main() {
@@ -32,7 +34,36 @@ func main() {
 	if err != nil {
 		fmt.Println("Error: ", err)
 	}
-	for i, v := range ips {
-		fmt.Printf("%d.\t%v\n", i, v)
+
+	countryFetcher, err := ip.NewLocationFetcher()
+	if err != nil {
+		fmt.Println("Error: ", err)
 	}
+
+	countriesQuantitiesMap, err := ip.QuantityOfCountries(ips, *countryFetcher)
+	if err != nil {
+		fmt.Println("Error: ", err)
+	}
+
+	slice := CountryQuantitySlice{}
+	for country, quantity := range countriesQuantitiesMap {
+		slice = append(slice, CountryQuantityPair{country, quantity})
+	}
+	sort.Sort(slice)
+
+	for i := 0; i < 10; i++ {
+		v := slice[i]
+		fmt.Println(i+1, ". \t|", v.quantity, "\t|", v.country)
+	}
+}
+
+type CountryQuantitySlice []CountryQuantityPair
+
+func (c CountryQuantitySlice) Len() int           { return len(c) }
+func (c CountryQuantitySlice) Less(i, j int) bool { return c[i].quantity > c[j].quantity }
+func (c CountryQuantitySlice) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
+
+type CountryQuantityPair struct {
+	country  string
+	quantity int
 }

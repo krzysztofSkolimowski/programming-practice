@@ -34,7 +34,6 @@ func ServiceNameFilterBuilder(serviceName string) FilterFcn {
 func ContainsIPAddAndFilterBuilder(ipRegexp *regexp.Regexp, ipSlice *[]net.IP) FilterFcn {
 	return func(l Log) bool {
 		if ipAddr := ip.Find(l.Msg, ipRegexp); ipAddr != nil {
-			//fmt.Println("ipSlice, *ipSlice: ", ipSlice, *ipSlice)
 			*ipSlice = append(*ipSlice, ipAddr)
 			return true
 		}

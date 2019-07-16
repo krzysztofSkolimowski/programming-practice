@@ -22,7 +22,7 @@ func FromFileFiltered(filePath string, filters ...FilterFcn) ([]Log, error) {
 
 func IPFromFileFiltered(filePath string, filters ...FilterFcn) ([]net.IP, error) {
 	var ret []net.IP
-	r := regexp.MustCompile(ip.IPPattern)
+	r := regexp.MustCompile(ip.Pattern)
 
 	f := ContainsIPAddAndFilterBuilder(r, &ret)
 	filters = append(filters, f)
